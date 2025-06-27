@@ -88,4 +88,24 @@ export const documents = {
   delete: (id) => api.delete(`/documents/document/${id}`),
 };
 
+export const mapRecords = {
+  mapRecords: async (bankStatement, bills, invoices) => {
+    try {
+      const formData = new FormData();
+      formData.append("bank_statement", bankStatement);
+      bills.forEach((file, idx) => formData.append("bills", file));
+      invoices.forEach((file, idx) => formData.append("invoices", file));
+      const response = await api.post("/map-records/", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      return response;
+    } catch (error) {
+      console.error("Error mapping records:", error);
+      throw error;
+    }
+  },
+};
+
 export default api;

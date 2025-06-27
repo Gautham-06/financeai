@@ -1,4 +1,0 @@
-transaction_number,date,amount,description
-TXN001,2024-03-20,1000.00,Salary Deposit
-TXN002,2024-03-21,-50.00,Grocery Store
-TXN003,2024-03-22,-150.00,Utility Bill 
